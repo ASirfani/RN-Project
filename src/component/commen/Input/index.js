@@ -26,12 +26,12 @@ const Input = ({
   };
 
   const getBoderColor = () => {
-    if (focused) {
-      return 'white';
-    }
     if (error) {
       return 'blue';
-    } else {
+    }
+    if (focused) {
+      return 'white';
+    }else {
       return 'black';
     }
   };

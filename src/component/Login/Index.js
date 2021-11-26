@@ -9,7 +9,7 @@ import Input from '../../component/commen/Input';
 import styles from './styles';
 import {REGISTER} from '../../constants/routeNames'
 
-const Index = () => {
+const LoginComponent = () => {
     const {navigate} = useNavigation();
   return (
     <Container>
@@ -37,12 +37,12 @@ const Index = () => {
             label="Password: "
             secureTextEntry={true}
             placeholder="Enter password"
-            icon={<Text>Hide</Text>}
+            icon={<Text>Show</Text>}
             iconPostion="right"
           />
 
           {/* submit button  */}
-          <CustomButton primary title="submit" />
+          <CustomButton primary title="Login" />
 
           <View style={styles.createSection}>
             <Text style={styles.infoText}>Need a new account?</Text>
@@ -58,4 +58,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default LoginComponent;
