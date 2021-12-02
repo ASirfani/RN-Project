@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text ,ActivityIndicator} from 'react-native';
 import {TextInput, TouchableOpacity} from 'react-native-gesture-handler';
-import {color} from 'react-native-reanimated';
 import styles from './styles';
 import Color from '../../../assets/themes/Color';
 const CustomButton = ({

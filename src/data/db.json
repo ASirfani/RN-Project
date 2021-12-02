@@ -1,0 +1,36 @@
+{
+  "register": [
+    {
+      "id": 1,
+      "username": "abbas",
+      "first_name": "ali",
+      "last_name": "irfani",
+      "email": "user@example.com",
+      "password": "123"
+    },
+    {
+      "username": "abbassss",
+      "first_name": "alis",
+      "last_name": "irfanis",
+      "email": "user@exsdfassse.com",
+      "password": "mashklasdf",
+      "id": 2
+    },
+    {
+      "username": "abbassss",
+      "first_name": "alis",
+      "last_name": "irfanis",
+      "email": "user@exsdfassse.com",
+      "password": "mashklasdf",
+      "id": 3
+    },
+    {
+      "username": "abbassss",
+      "first_name": "alis",
+      "last_name": "irfanis",
+      "email": "user@exsdfassse.com",
+      "password": "mashklasdf",
+      "id": 4
+    }
+  ]
+}

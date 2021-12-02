@@ -1,16 +1,17 @@
-import { useNavigation } from '@react-navigation/core';
+import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-import Container from '../../component/commen/Container';
-import CustomButton from '../../component/commen/CustomButton';
-import Input from '../../component/commen/Input';
+import Container from '../common/Container';
+import CustomButton from '../common/CustomButton';
+import Input from '../common/Input';
 import styles from './styles';
-import {REGISTER} from '../../constants/routeNames'
+import {REGISTER, SETTINGS} from '../../constants/routeNames';
+import Message from '../common/Message';
 
-const LoginComponent = () => {
-    const {navigate} = useNavigation();
+const LoginComponent = ({error ,loading,  onChange , onSubmit}) => {
+  const {navigate} = useNavigation();
   return (
     <Container>
       <Image
@@ -22,14 +23,26 @@ const LoginComponent = () => {
       <View>
         <Text style={styles.title}>Welcome to RNContacts</Text>
         <Text style={styles.subTitle}>Please login here</Text>
+
         <View style={styles.form}>
+          {error && !error.error && (<Message
+            danger
+            onDismiss={() => {}}
+            message="invalid credentials "
+          />)}
+
+
+          {error?.error && <Message danger onDismiss message={error?.error} />}
+
           {/* user input text */}
           <Input
             label="Username:"
             placeholder="Enter username"
             icon={<Text></Text>}
             iconPostion="right"
-            // error={'this field is require'}
+            onChangeText={value => {
+              onChange({name: 'userName', value});
+            }}
           />
 
           {/* password input text */}
@@ -39,16 +52,20 @@ const LoginComponent = () => {
             placeholder="Enter password"
             icon={<Text>Show</Text>}
             iconPostion="right"
+            onChangeText={value => {
+              onChange({name: 'password', value});
+            }}
           />
 
           {/* submit button  */}
-          <CustomButton primary title="Login" />
+          <CustomButton  disabled ={loading} loading = {loading} onPress = {onSubmit} primary title="Login" />
 
           <View style={styles.createSection}>
             <Text style={styles.infoText}>Need a new account?</Text>
-            <TouchableOpacity onPress={()=>{
+            <TouchableOpacity
+              onPress={() => {
                 navigate(REGISTER);
-            }}>
+              }}>
               <Text style={styles.linkBtn}>Register</Text>
             </TouchableOpacity>
           </View>

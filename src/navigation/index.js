@@ -13,8 +13,8 @@ const AppNav = () => {
 
   return (
     <NavigationContainer>
-      {isLoggedIn && <DrawerNavigator />}
-      <Authnavigator/>
+      {isLoggedIn ? <DrawerNavigator  />: <Authnavigator/>}
+      
     </NavigationContainer>
   );
 };

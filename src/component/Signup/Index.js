@@ -2,14 +2,21 @@ import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-
-import Container from '../commen/Container';
-import CustomButton from '../commen/CustomButton';
-import Input from '../commen/Input';
+import Container from '../common/Container';
+import CustomButton from '../common/CustomButton';
+import Input from '../common/Input';
 import styles from './styles';
-import {LOGIN, REGISTER} from '../../constants/routeNames';
+import {LOGIN} from '../../constants/routeNames';
+import Message from '../common/Message';
 
-const SignupComponent = ({onChange, onSubmit, form, error}) => {
+const SignupComponent = ({
+  onChange,
+  onSubmit,
+  form,
+  loading,
+  error,
+  errors,
+}) => {
   const {navigate} = useNavigation();
   return (
     <Container>
@@ -24,15 +31,26 @@ const SignupComponent = ({onChange, onSubmit, form, error}) => {
         <Text style={styles.subTitle}>Create new Account</Text>
         <View style={styles.form}>
           {/* user input text */}
+
+          {error?.error && (
+            <Message
+              danger
+              retry
+              retryFn={() => {
+                console.log('2222222222');
+              }}
+              message={error?.error}
+            />
+          )}
           <Input
             label="Username:"
             placeholder="Enter username"
             icon={<Text></Text>}
             iconPostion="right"
+            error={errors.userName || error?.username?.[0]}
             onChangeText={value => {
               onChange({name: 'userName', value: value});
             }}
-            error={error.userName}
           />
           <Input
             label="First name:"
@@ -40,10 +58,9 @@ const SignupComponent = ({onChange, onSubmit, form, error}) => {
             icon={<Text></Text>}
             iconPostion="right"
             onChangeText={value => {
-              onChange({name: 'firstName', value: value});
-
+              onChange({name: 'firstName', value});
             }}
-            error={error.firstName}
+            error={errors.firstName || error?.first_name?.[0]}
           />
 
           <Input
@@ -54,7 +71,7 @@ const SignupComponent = ({onChange, onSubmit, form, error}) => {
             onChangeText={value => {
               onChange({name: 'lastName', value: value});
             }}
-            error={error.lastName}
+            error={errors.lastName || error?.last_name?.[0]}
           />
           <Input
             label="Email:"
@@ -64,7 +81,7 @@ const SignupComponent = ({onChange, onSubmit, form, error}) => {
             onChangeText={value => {
               onChange({name: 'email', value: value});
             }}
-            error={error.email}
+            error={errors.email || error?.email?.[0]}
           />
 
           {/* password input text */}
@@ -76,12 +93,18 @@ const SignupComponent = ({onChange, onSubmit, form, error}) => {
             onChangeText={value => {
               onChange({name: 'password', value: value});
             }}
-            error={error.password}
+            error={errors.password || error?.password?.[0]}
             iconPostion="right"
           />
 
           {/* submit button  */}
-          <CustomButton onPress={onSubmit} primary title="Sign Up" />
+          <CustomButton
+            loading={loading}
+            onPress={onSubmit}
+            disabled={loading}
+            primary
+            title="Sign Up"
+          />
 
           <View style={styles.createSection}>
             <Text style={styles.infoText}>I have already account?</Text>

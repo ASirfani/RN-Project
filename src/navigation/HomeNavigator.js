@@ -1,8 +1,8 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import Contact from '../screens/Contact/index';
 import ContactDetail from '../screens/ContactDetail/index';
+import Contacts from '../screens/Contact/index';
 import CreateContact from '../screens/CreateContact/index';
 import Setting from '../screens/Setting/index';
 import {
@@ -17,10 +17,10 @@ const HomeNavigator = () => {
   const HomeStack = createStackNavigator();
 
   return (
-    <HomeStack.Navigator initialRouteName={SETTINGS}>
+    <HomeStack.Navigator initialRouteName={Contacts} screenOptions={{headerShown:false}} >
       <HomeStack.Screen
         name={CONTACT_LIST}
-        component={Contact}></HomeStack.Screen>
+        component={Contacts}></HomeStack.Screen>
       <HomeStack.Screen
         name={CONTACT_DETAIL}
         component={ContactDetail}></HomeStack.Screen>
