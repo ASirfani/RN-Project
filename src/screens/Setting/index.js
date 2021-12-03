@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View ,  StyleSheet } from 'react-native';
+import {Text} from 'react-native';
 import Container from '../../component/common/Container/index'
 
 const Setting = () => {

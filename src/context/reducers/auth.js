@@ -25,7 +25,6 @@ const auth = (state, {type, payload}) => {
       };
 
     case LOGIN_SUCCESS:
-      console.log("11111111111111");
       return {
         ...state,
         loading: false,

@@ -37,7 +37,6 @@ const SignupComponent = ({
               danger
               retry
               retryFn={() => {
-                console.log('2222222222');
               }}
               message={error?.error}
             />
