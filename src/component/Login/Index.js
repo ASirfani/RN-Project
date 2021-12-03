@@ -1,5 +1,5 @@
 import {useNavigation} from '@react-navigation/core';
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
@@ -10,8 +10,9 @@ import styles from './styles';
 import {REGISTER, SETTINGS} from '../../constants/routeNames';
 import Message from '../common/Message';
 
-const LoginComponent = ({error ,loading,  onChange , onSubmit}) => {
+const LoginComponent = ({error, loading, onChange, onSubmit}) => {
   const {navigate} = useNavigation();
+  const [isSecureText, setIsSecureText] = useState(true);
   return (
     <Container>
       <Image
@@ -25,12 +26,13 @@ const LoginComponent = ({error ,loading,  onChange , onSubmit}) => {
         <Text style={styles.subTitle}>Please login here</Text>
 
         <View style={styles.form}>
-          {error && !error.error && (<Message
-            danger
-            onDismiss={() => {}}
-            message="invalid credentials "
-          />)}
-
+          {error && !error.error && (
+            <Message
+              danger
+              onDismiss={() => {}}
+              message="invalid credentials "
+            />
+          )}
 
           {error?.error && <Message danger onDismiss message={error?.error} />}
 
@@ -48,17 +50,27 @@ const LoginComponent = ({error ,loading,  onChange , onSubmit}) => {
           {/* password input text */}
           <Input
             label="Password: "
-            secureTextEntry={true}
+            secureTextEntry={isSecureText}
             placeholder="Enter password"
-            icon={<Text>Show</Text>}
             iconPostion="right"
+            icon={
+              <TouchableOpacity onPress={() => setIsSecureText(prev => {return !prev;})}>
+                <Text>{isSecureText ? 'Show' : 'Hide'}</Text>
+              </TouchableOpacity>
+            }
             onChangeText={value => {
               onChange({name: 'password', value});
             }}
           />
 
           {/* submit button  */}
-          <CustomButton  disabled ={loading} loading = {loading} onPress = {onSubmit} primary title="Login" />
+          <CustomButton
+            disabled={loading}
+            loading={loading}
+            onPress={onSubmit}
+            primary
+            title="Login"
+          />
 
           <View style={styles.createSection}>
             <Text style={styles.infoText}>Need a new account?</Text>
