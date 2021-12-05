@@ -2,6 +2,7 @@ import {useNavigation} from '@react-navigation/core';
 import React, {useEffect} from 'react';
 import {Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 const Contacts = () => {
   const {setOptions, toggleDrawer} = useNavigation();
 
@@ -9,7 +10,7 @@ const Contacts = () => {
     setOptions({
         headerLeft: () => (
           <TouchableOpacity onPress = {()=>{toggleDrawer();}}>
-            <Text style={{paddingLeft: 15}}>Nav</Text>
+            <SimpleLineIcons style={{paddingLeft: 17}} size={25} name = "menu"></SimpleLineIcons>
           </TouchableOpacity>
         ),
     });

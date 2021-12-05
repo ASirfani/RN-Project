@@ -10,7 +10,14 @@ import styles from './styles';
 import {REGISTER, SETTINGS} from '../../constants/routeNames';
 import Message from '../common/Message';
 
-const LoginComponent = ({error, loading, onChange, onSubmit}) => {
+const LoginComponent = ({
+  error,
+  justSignUp,
+  form,
+  loading,
+  onChange,
+  onSubmit,
+}) => {
   const {navigate} = useNavigation();
   const [isSecureText, setIsSecureText] = useState(true);
   return (
@@ -26,6 +33,13 @@ const LoginComponent = ({error, loading, onChange, onSubmit}) => {
         <Text style={styles.subTitle}>Please login here</Text>
 
         <View style={styles.form}>
+          {justSignUp && (
+            <Message
+              success
+              onDismiss={() => {}}
+              message="Account is Created"
+            />
+          )}
           {error && !error.error && (
             <Message
               danger
@@ -42,6 +56,7 @@ const LoginComponent = ({error, loading, onChange, onSubmit}) => {
             placeholder="Enter username"
             icon={<Text></Text>}
             iconPostion="right"
+            value={form.userName || ''}
             onChangeText={value => {
               onChange({name: 'userName', value});
             }}
@@ -54,7 +69,12 @@ const LoginComponent = ({error, loading, onChange, onSubmit}) => {
             placeholder="Enter password"
             iconPostion="right"
             icon={
-              <TouchableOpacity onPress={() => setIsSecureText(prev => {return !prev;})}>
+              <TouchableOpacity
+                onPress={() =>
+                  setIsSecureText(prev => {
+                    return !prev;
+                  })
+                }>
                 <Text>{isSecureText ? 'Show' : 'Hide'}</Text>
               </TouchableOpacity>
             }

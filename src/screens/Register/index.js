@@ -15,11 +15,11 @@ const SignUp = () => {
     authState: {error, loading, data},
   } = useContext(GlobleContext);
 
-  useEffect(() => {
-    if (data) {
-      navigate(LOGIN);
-    }
-  }, [data]);
+  // useEffect(() => {
+  //   if (data) {
+  //     navigate(LOGIN);
+  //   }
+  // }, [data]);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -93,7 +93,9 @@ const SignUp = () => {
       Object.values(form).every(item => item.trim().length > 0) &&
       Object.values(errors).every(item => !item)
     ) {
-      register(form)(authDispatch);
+      register(form)(authDispatch)((response)=>{
+        navigate(LOGIN,{data:response});
+      });
     }
   };
   return (

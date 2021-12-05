@@ -5,11 +5,9 @@ import styles from './styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {SETTINGS} from '../../constants/routeNames';
 import LogoutUser from '../../context/actions/auth/LogoutUser';
-
-const SideMenu = ({navigation,authDispatch}) => {
-
-  
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+const SideMenu = ({navigation, authDispatch}) => {
   const handleLogout = () => {
     navigation.toggleDrawer();
     Alert.alert('Logout', 'Are you sure to Logout?', [
@@ -28,13 +26,17 @@ const SideMenu = ({navigation,authDispatch}) => {
 
   const menuItems = [
     {
-      icon: <Text>T</Text>,
+      icon: <Ionicons size={13} name="md-settings" />,
       name: 'Setting',
       onPress: () => {
         navigation.navigate(SETTINGS);
       },
     },
-    {icon: <Text>T</Text>, name: 'Logout', onPress: handleLogout},
+    {
+      icon: <MaterialIcons size={13} name="logout" />,
+      name: 'Logout',
+      onPress: handleLogout,
+    },
   ];
 
   return (
