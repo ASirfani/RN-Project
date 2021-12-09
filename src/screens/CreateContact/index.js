@@ -1,13 +1,9 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-
+import CreactContactComponent from '../../component/CreactContactComponent';
 
 const CreateContact = () => {
-  return (
-    <View>
-      <Text> Hello create Contact</Text>
-    </View>
-  );
+  return <CreactContactComponent />;
 };
 
 export default CreateContact;
