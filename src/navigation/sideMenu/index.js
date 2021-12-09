@@ -5,6 +5,7 @@ import styles from './styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {SETTINGS} from '../../constants/routeNames';
 import LogoutUser from '../../context/actions/auth/LogoutUser';
+import Icon from '../../component/common/Icon'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 const SideMenu = ({navigation, authDispatch}) => {
@@ -26,14 +27,14 @@ const SideMenu = ({navigation, authDispatch}) => {
 
   const menuItems = [
     {
-      icon: <Ionicons size={13} name="md-settings" />,
+      icon: <Icon size={13} type = "material" name="settings" />,
       name: 'Setting',
       onPress: () => {
         navigation.navigate(SETTINGS);
       },
     },
     {
-      icon: <MaterialIcons size={13} name="logout" />,
+      icon: <Icon type="material" size={13} name="logout" />,
       name: 'Logout',
       onPress: handleLogout,
     },

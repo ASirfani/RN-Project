@@ -1,29 +1,25 @@
 import {useNavigation} from '@react-navigation/core';
-import React, {useEffect} from 'react';
-import {Text, View} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import React, {useEffect, useState} from 'react';
+import {Text,TouchableOpacity} from 'react-native';
+import Icon from '../../component/common/Icon';
+import ContactsComponent from '../../component/ContactsComponent';
+
 const Contacts = () => {
+  const [modalVisible,setModalVisible] = useState(false);
   const {setOptions, toggleDrawer} = useNavigation();
 
   React.useEffect(() => {
     setOptions({
         headerLeft: () => (
           <TouchableOpacity onPress = {()=>{toggleDrawer();}}>
-            <SimpleLineIcons style={{paddingLeft: 17}} size={25} name = "menu"></SimpleLineIcons>
+            <Icon style={{paddingLeft: 17}} size={25} type="simpleLine" name = "menu"/>
           </TouchableOpacity>
         ),
     });
   }, []);
 
   return (
-    <View>
-      <Text> Hello Contact</Text>
-      <Text> Hello Contact</Text>
-      <Text> Hello Contact</Text>
-      <Text> Hello Contact</Text>
-      <Text> Hello Contact</Text>
-    </View>
+    <ContactsComponent modalVisible={modalVisible} setModalVisible={setModalVisible} />
   );
 };
 
