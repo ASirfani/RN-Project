@@ -10,8 +10,7 @@ const Contacts = () => {
   const [modalVisible,setModalVisible] = useState(false);
   const {setOptions, toggleDrawer} = useNavigation();
   const {contactDispatch,contactState:{getContacts: {data, loading}}}=useContext(GlobleContext);
-  console.log("data",data);
-  console.log("loading", loading);
+  
 
   useEffect(() => {
     getContacts()(contactDispatch);
