@@ -1,4 +1,4 @@
-package com.rnproject;
+package com.asirfani.rncontact;
 
 import android.os.Bundle;
 

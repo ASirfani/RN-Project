@@ -5,6 +5,7 @@ import colors from '../../../assets/themes/Color';
 import Icon from '../../common/Icon';
 import styles from './styles';
 
+
 const ImagePicker = React.forwardRef(({}, ref) => {
   const options = [
     {

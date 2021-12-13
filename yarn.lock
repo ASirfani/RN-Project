@@ -6001,6 +6001,11 @@ prop-types@15.7.2, prop-types@^15.7.2:
     object-assign "^4.1.1"
     react-is "^16.8.1"
 
+props-type@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/props-type/-/props-type-1.0.1.tgz#9764ae1b1be01095412112b586d7f823730c6afa"
+  integrity sha512-Jc84Wrxp8yje+3OaOTLNqsnuWSuAlopobmqk4KVxUGbZ5WbQJm3YoPQDxZiSIaHLA9CTavD45TOIm8u5wwoO2g==
+
 proxy-addr@~2.0.5:
   version "2.0.7"
   resolved "https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.7.tgz"
@@ -6140,6 +6145,11 @@ react-native-gesture-handler@^1.10.3:
     hoist-non-react-statics "^3.3.0"
     invariant "^2.2.4"
     prop-types "^15.7.2"
+
+react-native-image-crop-picker@^0.37.2:
+  version "0.37.2"
+  resolved "https://registry.yarnpkg.com/react-native-image-crop-picker/-/react-native-image-crop-picker-0.37.2.tgz#3aadc4ae4812c9975c49a294d9a17ffae057dbb4"
+  integrity sha512-YwZXW21Km8+3tSt0smTaLVgY4398c0/OJcpcH6EP0JDOt1BNNxl/R8m6qdvnwdXdIoa0CCnMVW6TL9IN5ia9OA==
 
 react-native-raw-bottom-sheet@^2.2.0:
   version "2.2.0"
