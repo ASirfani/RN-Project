@@ -1,5 +1,7 @@
 import {StyleSheet} from 'react-native';
 import Colors from '../../../assets/themes/Color'
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 export default StyleSheet.create({
 
     wrapper: {
@@ -24,7 +26,7 @@ export default StyleSheet.create({
         padding: 15,
         },
         textModal:{
-            fontSize: 21,
+            fontSize: RFValue(14,680),
     
         }
         ,body:{
@@ -58,7 +60,7 @@ export default StyleSheet.create({
         flexDirection:'row'
     },
     footerText:{
-        fontSize:12,
+        fontSize:RFValue(12,680),
         
     }
     

@@ -3,6 +3,9 @@ import {View, Text,ScrollView, TouchableOpacity} from 'react-native';
 import colors from '../../assets/themes/Color';
 import AppModal from '../common/AppModal';
 import Icon from '../common/Icon';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 const SettingsComponent = ({
   settingsOptions,
@@ -28,8 +31,8 @@ const SettingsComponent = ({
                     paddingVertical: 5,
                     alignItems: 'center',
                   }}>
-                  {selected && <Icon size={17} name="check" type="material" />}
-                  <Text style={{fontSize: 17, paddingLeft: selected ? 15 : 30}}>
+                  {selected && <Icon size={hp('2%')} name="check" type="material" />}
+                  <Text style={{fontSize: RFValue(14,680), paddingLeft: selected ? 15 : 30}}>
                     {name}
                   </Text>
                 </TouchableOpacity>
@@ -48,9 +51,9 @@ const SettingsComponent = ({
                 paddingBottom: 20,
                 paddingTop: 20,
               }}>
-              <Text style={{fontSize: 17}}>{title}</Text>
+              <Text style={{fontSize: RFValue(14,680)}}>{title}</Text>
               {subTitle && (
-                <Text style={{fontSize: 14, opacity: 0.5, paddingTop: 5}}>
+                <Text style={{fontSize: RFValue(14,680), opacity: 0.5, paddingTop: 5}}>
                   {subTitle}
                 </Text>
               )}
