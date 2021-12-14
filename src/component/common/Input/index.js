@@ -2,8 +2,11 @@ import React, {useState} from 'react';
 import {View, Text} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 import styles from './styles';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const Input = ({
+  placeholder,
   onChangeText,
   icon,
   value,
@@ -38,7 +41,7 @@ const Input = ({
 
   return (
     <View style={styles.inputContainer}>
-      {label && <Text>{label}</Text>}
+      {label && <Text style={styles.labelText}>{label}</Text>}
 
       <View
         style={[
@@ -51,6 +54,8 @@ const Input = ({
         ]}>
         <View>{icon && icon}</View>
         <TextInput
+          fontSize= {RFValue(14,680)}
+          placeholder={placeholder}
           style={[styles.inputText, style]}
           onChangeText={onChangeText}
           value={value}

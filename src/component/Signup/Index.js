@@ -91,7 +91,7 @@ const SignupComponent = ({
                     return !prev;
                   })
                 }>
-                <Text>{isSecureText ? 'Show' : 'Hide'}</Text>
+                <Text style={styles.showIcon}>{isSecureText ? 'Show' : 'Hide'}</Text>
               </TouchableOpacity>
             }
             onChangeText={value => {
