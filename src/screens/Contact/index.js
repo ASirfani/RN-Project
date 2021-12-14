@@ -5,6 +5,8 @@ import Icon from '../../component/common/Icon';
 import ContactsComponent from '../../component/ContactsComponent';
 import { GlobleContext } from '../../context/Provider';
 import getContacts from '../../context/actions/auth/Contacts/getContacts'
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 const Contacts = () => {
   const [modalVisible,setModalVisible] = useState(false);
@@ -20,7 +22,7 @@ const Contacts = () => {
     setOptions({
         headerLeft: () => (
           <TouchableOpacity onPress = {()=>{toggleDrawer();}}>
-            <Icon style={{paddingLeft: 17}} size={25} type="simpleLine" name = "menu"/>
+            <Icon style={{paddingLeft: 17}} size={hp('3%')} type="simpleLine" name = "menu"/>
           </TouchableOpacity>
         ),
     });

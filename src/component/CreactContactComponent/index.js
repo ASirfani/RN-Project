@@ -9,6 +9,9 @@ import CustomButton from '../common/CustomButton';
 import {DEFAULT_IMAGE_URI} from '../../constants/gerenel';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import ImagePicker from '../common/imagePicker/index';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 const CreactContactComponent = ({
   loading,
@@ -54,7 +57,7 @@ const CreactContactComponent = ({
           style={{paddingLeft: 10}}
           iconPostion="left"
           icon={
-            <CountryPicker
+            <CountryPicker 
               withFilter
               withFlag
               countryCode={form.countryCode || undefined}
@@ -83,7 +86,7 @@ const CreactContactComponent = ({
             alignItems: 'center',
             justifyContent: 'space-between',
           }}>
-          <Text>Add to isFavorite</Text>
+          <Text style={{fontSize:RFValue(14,680)}}>Add to isFavorite</Text>
           <Switch
             trackColor={{false: '#767577', true: '#81b0ff'}}
             thumbColor={form.isFavorite ? '#f5dd4b' : '#f4f3f4'}

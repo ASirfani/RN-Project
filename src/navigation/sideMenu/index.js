@@ -6,8 +6,10 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {SETTINGS} from '../../constants/routeNames';
 import LogoutUser from '../../context/actions/auth/LogoutUser';
 import Icon from '../../component/common/Icon'
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
+
 const SideMenu = ({navigation, authDispatch}) => {
   const handleLogout = () => {
     navigation.toggleDrawer();
@@ -27,14 +29,14 @@ const SideMenu = ({navigation, authDispatch}) => {
 
   const menuItems = [
     {
-      icon: <Icon size={13} type = "material" name="settings" />,
+      icon: <Icon size={hp('2%')} type = "material" name="settings" />,
       name: 'Setting',
       onPress: () => {
         navigation.navigate(SETTINGS);
       },
     },
     {
-      icon: <Icon type="material" size={13} name="logout" />,
+      icon: <Icon type="material" size={hp('2%')} name="logout" />,
       name: 'Logout',
       onPress: handleLogout,
     },

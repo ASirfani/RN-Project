@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 export default StyleSheet.create({
   pickerOption: {
@@ -12,7 +13,7 @@ export default StyleSheet.create({
   },
 
   text: {
-    fontSize: 17,
+    fontSize: RFValue(14,680),
     paddingLeft: 17,
   },
 });

@@ -52,7 +52,7 @@ const Input = ({
             alignItems: icon ? 'center' : 'baseline',
           },
         ]}>
-        <View>{icon && icon}</View>
+        <View style={{fontSize:RFValue(14,680)}}>{icon && icon}</View>
         <TextInput
           fontSize= {RFValue(14,680)}
           placeholder={placeholder}

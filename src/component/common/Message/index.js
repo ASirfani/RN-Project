@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {View, Text, ActivityIndicator} from 'react-native';
 import {TextInput, TouchableOpacity} from 'react-native-gesture-handler';
 import styles from './styles';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+
 import Color from '../../../assets/themes/Color';
 const Message = ({
   style,
@@ -41,7 +43,7 @@ const Message = ({
             flexDirection: 'row',
             justifyContent: 'space-between',
           }}>
-          <Text style={{color: 'white'}}>{message}</Text>
+          <Text style={{color: 'white' , fontSize:RFValue(17,680) }}>{message}</Text>
 
           {retry && !typeof onDismiss === 'function' && (
             <TouchableOpacity onPress={retryFn}>

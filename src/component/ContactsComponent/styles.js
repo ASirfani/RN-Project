@@ -1,5 +1,7 @@
 import {StyleSheet} from "react-native";
 import colors from '../../assets/themes/Color';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default StyleSheet.create({
   itemContainer: {
@@ -16,20 +18,20 @@ export default StyleSheet.create({
     paddingHorizontal: 20,
   },
 
-  name: {fontSize:17},
+  name: {fontSize:RFValue(14,680)},
   phoneNumber: {
     opacity: 0.6,
-    fontSize: 14,
+    fontSize: RFValue(14,680),
     paddingVertical: 5,
   },
 
   floatingActionButton: {
     backgroundColor: 'red',
-    width: 55,
-    height: 55,
+    height:hp('7%'), 
+    width:hp('7%'),
     position: 'absolute',
-    bottom: 45,
-    right: 10,
+    bottom: hp('5%'),
+    right: hp('4%'),
     borderRadius: 100,
     justifyContent: 'center',
     alignItems: 'center',
@@ -45,12 +47,12 @@ export default StyleSheet.create({
 
   actionText: {
     textAlign: 'center',
-    maxWidth: '70@s',
-    paddingTop: '5@s',
-    fontSize: '14@s',
+    maxWidth: '70',
+    paddingTop: '5',
+    fontSize: RFValue(14,680),
     color: colors.white,
   },
   actionTextStyle: {
-    padding: '40@s',
+    padding: '40',
   },
 });
